@@ -1,7 +1,10 @@
 package ru.philimonov.spring.mvc;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class MyController {
@@ -17,7 +20,11 @@ public class MyController {
     }
 
     @RequestMapping("/showDetails")
-    public String showEmpDetails() {
+    public String showEmpDetails(HttpServletRequest servletRequest, Model model) {
+        String empName = servletRequest.getParameter("employeeName");
+        empName = "Mr. " + empName;
+        model.addAttribute("nameAttribute", empName);
+
         return "show-emp-details-view";
     }
 }
