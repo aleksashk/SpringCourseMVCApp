@@ -18,6 +18,8 @@ public class Employee {
 
     private Map<String, String> carBrands;
 
+    private String[] languages;
+
     public Employee() {
         departments = new HashMap<>();
         departments.put("IT", "Information Technology");
@@ -28,6 +30,14 @@ public class Employee {
         carBrands.put("BMW", "BMW");
         carBrands.put("Audi", "Audi");
         carBrands.put("Mercedes-Benz", "MB");
+    }
+
+    public String[] getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(String[] languages) {
+        this.languages = languages;
     }
 
     public Map<String, String> getDepartments() {
