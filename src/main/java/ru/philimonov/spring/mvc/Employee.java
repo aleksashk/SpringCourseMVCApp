@@ -1,8 +1,10 @@
 package ru.philimonov.spring.mvc;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,8 +15,10 @@ public class Employee {
     private String name;
     @NotBlank(message = "Surname is required fields")
     private String surname;
-
+    @Min(value = 3000, message = "Salary must be greater than 2999")
     private int salary;
+    @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}", message = "Please use pattern: XXX-XX-XX")
+    private String phoneNumber;
 
     private String department;
 
@@ -44,6 +48,14 @@ public class Employee {
         languageList.put("English", "EN");
         languageList.put("Deutsch", "DE");
         languageList.put("French", "FR");
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Map<String, String> getLanguageList() {
