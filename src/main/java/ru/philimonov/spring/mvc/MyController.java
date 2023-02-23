@@ -24,6 +24,7 @@ public class MyController {
         String empName = servletRequest.getParameter("employeeName");
         empName = "Mr. " + empName;
         model.addAttribute("nameAttribute", empName);
+        model.addAttribute("description", " - best java developer!");
 
         return "show-emp-details-view";
     }

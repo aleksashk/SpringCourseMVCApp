@@ -16,7 +16,7 @@
 <br>
 <br>
 
-Your name: ${nameAttribute}
+Your name: ${nameAttribute}  ${description}
 
 </body>
 </html>
