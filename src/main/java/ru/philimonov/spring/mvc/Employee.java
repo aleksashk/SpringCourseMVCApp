@@ -1,9 +1,12 @@
 package ru.philimonov.spring.mvc;
 
+import javax.validation.constraints.Size;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Employee {
+
+    @Size(min = 2, message = "Name must be min 2 symbols")
     private String name;
 
     private String surname;
