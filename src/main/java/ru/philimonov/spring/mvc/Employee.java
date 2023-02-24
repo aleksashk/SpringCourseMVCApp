@@ -1,10 +1,10 @@
 package ru.philimonov.spring.mvc;
 
+import ru.philimonov.spring.mvc.validation.CheckEmail;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.HashMap;
@@ -22,6 +22,9 @@ public class Employee {
     @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}", message = "Please use pattern: XXX-XX-XX")
     private String phoneNumber;
 
+    @CheckEmail(value = "abc.com", message = "email must ends with abc.com")
+    private String email;
+
     private String department;
 
     private Map<String, String> departments;
@@ -34,14 +37,13 @@ public class Employee {
 
     private Map<String, String> languageList;
 
-
     public Employee() {
         departments = new HashMap<>();
         departments.put("IT", "Information Technology");
         departments.put("HR", "Human Resources");
         departments.put("Sales", "Sales");
 
-        carBrands=new HashMap<>();
+        carBrands = new HashMap<>();
         carBrands.put("BMW", "BMW");
         carBrands.put("Audi", "Audi");
         carBrands.put("Mercedes-Benz", "MB");
@@ -50,6 +52,14 @@ public class Employee {
         languageList.put("English", "EN");
         languageList.put("Deutsch", "DE");
         languageList.put("French", "FR");
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPhoneNumber() {

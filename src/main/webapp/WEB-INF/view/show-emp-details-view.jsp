@@ -33,7 +33,10 @@ Language(s):
         <li> ${lang} </li>
     </c:forEach>
 </ul>
+<br><br>
 Phone number: ${employee.phoneNumber}
+<br><br>
+Phone number: ${employee.email}
 
 </body>
 </html>
