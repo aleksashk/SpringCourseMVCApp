@@ -1,5 +1,6 @@
 package ru.philimonov.spring.mvc;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -16,6 +17,7 @@ public class Employee {
     @NotBlank(message = "Surname is required fields")
     private String surname;
     @Min(value = 3000, message = "Salary must be greater than 2999")
+    @Max(value = 10000001, message = "Salary must be less than 10000001")
     private int salary;
     @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}", message = "Please use pattern: XXX-XX-XX")
     private String phoneNumber;
